@@ -410,10 +410,6 @@ namespace OdinPlugs.OdinInject
                 {
                     x.UseMySql(options.MySqlEventBusOptions.MysqlConnectionString);
                 }
-                if (options.PostgreSqlEventBusOptions.Enable || !string.IsNullOrEmpty(options.PostgreSqlEventBusOptions.PostgreSqlConnectionString))
-                {
-                    x.UsePostgreSql(options.PostgreSqlEventBusOptions.PostgreSqlConnectionString);
-                }
                 if (options.MongoEventBusOptions.Enable || !string.IsNullOrEmpty(options.MongoEventBusOptions.MongoConnectionString))
                 {
                     //注意，仅支持MongoDB 4.0+集群
@@ -431,16 +427,6 @@ namespace OdinPlugs.OdinInject
                             rb.VirtualHost = rbmq.VirtualHost;
                             rb.Port = rbmq.Port;
                         });
-                }
-                if (options.KafkaEventBusOptions.Enable || !string.IsNullOrEmpty(options.KafkaEventBusOptions.KafkaConnectionString))
-                {
-                    //注意，仅支持MongoDB 4.0+集群
-                    x.UseKafka(options.KafkaEventBusOptions.KafkaConnectionString);
-                }
-                if (options.AzureServiceEventBusOptions.Enable || !string.IsNullOrEmpty(options.AzureServiceEventBusOptions.AzureServiceConnectionString))
-                {
-                    //注意，仅支持MongoDB 4.0+集群
-                    x.UseAzureServiceBus(options.AzureServiceEventBusOptions.AzureServiceConnectionString);
                 }
                 if (options.UseDashboard)
                 {

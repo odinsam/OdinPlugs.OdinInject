@@ -23,17 +23,12 @@
     <None Include="images\icon.png" Pack="true" PackagePath="\"/>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1"/>
-    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0"/>
     <PackageReference Include="DotNetCore.CAP" Version="5.1.1"/>
     <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="5.1.1"/>
     <PackageReference Include="DotNetCore.CAP.MySql" Version="5.1.1"/>
     <PackageReference Include="DotNetCore.CAP.Dashboard" Version="5.1.1"/>
     <PackageReference Include="DotNetCore.CAP.MongoDB" Version="5.1.1"/>
-    <PackageReference Include="DotNetCore.CAP.Kafka" Version="5.1.1"/>
-    <PackageReference Include="DotNetCore.CAP.PostgreSql" Version="5.1.1"/>
     <PackageReference Include="DotNetCore.CAP.InMemoryStorage" Version="5.1.1"/>
-    <PackageReference Include="DotNetCore.CAP.AzureServiceBus" Version="5.1.1"/>
     <PackageReference Include="OdinPlugs.Utils" Version="1.0.0"/>
   </ItemGroup>
 </Project>

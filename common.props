@@ -1,0 +1,23 @@
+<Project>
+    <PropertyGroup>
+        <!-- 变量控制 -->
+        <OdinVersion>1.0.0</OdinVersion>
+        <OdinRootNamespace>OdinPlugs.OdinInject</OdinRootNamespace>
+        <OdinGeneratePackageOnBuild>true</OdinGeneratePackageOnBuild>
+        <OdinAssemblyName>OdinPlugs.OdinInject</OdinAssemblyName>
+        <!--WinExe、Exe、Library-->
+        <OdinOutputType>Library</OdinOutputType>
+
+        
+        <OdinPlugsVersion>1.0.0</OdinPlugsVersion>
+        <OdinPackageId>$(OdinAssemblyName)</OdinPackageId>
+        <OdinAuthors>odinSam</OdinAuthors>
+        <OdinCompany>odinsam</OdinCompany>
+        <OdinCopyright>版权所有 (c) odinsam 2021</OdinCopyright>
+        <OdinProduct></OdinProduct>
+        <OdinDescription></OdinDescription>
+        <OdinRepositoryType>git</OdinRepositoryType>
+        <OdinPackageTags>utils;inject;standard</OdinPackageTags>
+        <OdinGitUrl>https://github.com/odinsam</OdinGitUrl>
+    </PropertyGroup>
+</Project>

@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <!-- 变量控制 -->
-        <OdinVersion>1.0.0</OdinVersion>
+        <OdinVersion>1.0.1</OdinVersion>
         <OdinRootNamespace>OdinPlugs.OdinInject</OdinRootNamespace>
         <OdinGeneratePackageOnBuild>true</OdinGeneratePackageOnBuild>
         <OdinAssemblyName>OdinPlugs.OdinInject</OdinAssemblyName>
@@ -9,7 +9,6 @@
         <OdinOutputType>Library</OdinOutputType>
 
         
-        <OdinPlugsVersion>1.0.0</OdinPlugsVersion>
         <OdinPackageId>$(OdinAssemblyName)</OdinPackageId>
         <OdinAuthors>odinSam</OdinAuthors>
         <OdinCompany>odinsam</OdinCompany>

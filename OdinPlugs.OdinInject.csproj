@@ -4,23 +4,26 @@
     <TargetFramework>net5.0</TargetFramework>
     <GeneratePackageOnBuild>$(OdinGeneratePackageOnBuild)</GeneratePackageOnBuild>
     <AssemblyName>$(OdinAssemblyName)</AssemblyName>
-    <RootNamespace>$(OdinCoreDemo)</RootNamespace>
-    <OutputType>$(OdinOutputType)</OutputType>
+    <RootNamespace>OdinPlugs.OdinInject</RootNamespace>
+    <OutputType>Library</OutputType>
     <PackageId>$(OdinPackageId)</PackageId>
     <Authors>$(OdinAuthors)</Authors>
     <Company>$(OdinCompany)</Company>
     <Copyright>$(OdinCopyright)</Copyright>
     <Product>$(OdinProduct)</Product>
     <Description>$(OdinDescription)</Description>
-    <Version>$(OdinVersion)</Version>
+    <Version>1.0.5</Version>
     <PackageTags>$(OdinPackageTags)</PackageTags>
+    <PackageProjectUrl>$(OdinGitUrl)/OdinPlugs.Utils.git</PackageProjectUrl>
     <RepositoryUrl>$(OdinGitUrl)/$(OdinAssemblyName)</RepositoryUrl>
     <RepositoryType>$(OdinRepositoryType)</RepositoryType>
     <RepositoryBranch>master</RepositoryBranch>
+    <ApplicationIcon/>
+    <StartupObject/>
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="images\icon.png" Pack="true" PackagePath="\"/>
+    <None Include="images\icon.png" Pack="true" PackagePath=""/>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DotNetCore.CAP" Version="5.1.1"/>
@@ -28,7 +31,13 @@
     <PackageReference Include="DotNetCore.CAP.MySql" Version="5.1.1"/>
     <PackageReference Include="DotNetCore.CAP.Dashboard" Version="5.1.1"/>
     <PackageReference Include="DotNetCore.CAP.MongoDB" Version="5.1.1"/>
+    <PackageReference Include="SqlSugar.IOC" Version="1.5.0"/>
     <PackageReference Include="DotNetCore.CAP.InMemoryStorage" Version="5.1.1"/>
-    <PackageReference Include="OdinPlugs.Utils" Version="1.0.0"/>
+    
+    
+    
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OdinPlugs.Utils\OdinPlugs.OdinUtils.csproj"/>
   </ItemGroup>
 </Project>

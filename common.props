@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <!-- 变量控制 -->
-        <OdinVersion>1.0.1</OdinVersion>
+        <OdinVersion>1.0.5</OdinVersion>
         <OdinRootNamespace>OdinPlugs.OdinInject</OdinRootNamespace>
         <OdinGeneratePackageOnBuild>true</OdinGeneratePackageOnBuild>
         <OdinAssemblyName>OdinPlugs.OdinInject</OdinAssemblyName>
@@ -14,7 +14,7 @@
         <OdinCompany>odinsam</OdinCompany>
         <OdinCopyright>版权所有 (c) odinsam 2021</OdinCopyright>
         <OdinProduct></OdinProduct>
-        <OdinDescription></OdinDescription>
+        <OdinDescription>the odin inject</OdinDescription>
         <OdinRepositoryType>git</OdinRepositoryType>
         <OdinPackageTags>utils;inject;standard</OdinPackageTags>
         <OdinGitUrl>https://github.com/odinsam</OdinGitUrl>

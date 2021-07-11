@@ -1,4 +1,4 @@
-namespace OdinPlugs.OdinInject.Models
+namespace OdinPlugs.OdinInject.Models.HttpClientModels
 {
     public class SslCerOptions
     {

@@ -103,10 +103,8 @@
     ```csharp
     // 有ssl证书注册
     services.AddOdinHttpClientByCer(opt =>
-            opt = new List<SslCerOptions>
-            {
-                new SslCerOptions{ ClientName="",CerName="",CerPassword = "",CerPath="" }
-            });
+            opt.Add(new SslCerOptions{ ClientName="",CerName="",CerPassword = "",CerPath="" })
+        );
     ```
 
     具体使用:
@@ -127,12 +125,10 @@
     #### 2.4 Cap注入:
     项目使用Cap第三方框架，示例使用 mysql和rabbitmq，还可以使用其他方式，具体可以参见 OdinCapEventBusOptions
     ```csharp
-    services.AddOdinCapInject(opt=>
-            opt = new OdinCapEventBusOptions
-                {
-                    MysqlConnectionString = _Options.DbEntity.ConnectionString,
-                    RabbitmqOptions = _Options.RabbitMQ
-                });
+    services.AddOdinCapInject(opt=>{
+            opt.MysqlConnectionString = _Options.DbEntity.ConnectionString;
+            opt.RabbitmqOptions = _Options.RabbitMQ
+        });
     ```
     具体使用:
     ```csharp

@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="./common.props"/>
+  <Import Project="./common.props" />
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <GeneratePackageOnBuild>$(OdinGeneratePackageOnBuild)</GeneratePackageOnBuild>
@@ -18,26 +18,23 @@
     <RepositoryUrl>$(OdinGitUrl)/$(OdinAssemblyName)</RepositoryUrl>
     <RepositoryType>$(OdinRepositoryType)</RepositoryType>
     <RepositoryBranch>master</RepositoryBranch>
-    <ApplicationIcon/>
-    <StartupObject/>
+    <ApplicationIcon />
+    <StartupObject />
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="images\icon.png" Pack="true" PackagePath=""/>
+    <None Include="images\icon.png" Pack="true" PackagePath="" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DotNetCore.CAP" Version="5.1.1"/>
-    <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="5.1.1"/>
-    <PackageReference Include="DotNetCore.CAP.MySql" Version="5.1.1"/>
-    <PackageReference Include="DotNetCore.CAP.Dashboard" Version="5.1.1"/>
-    <PackageReference Include="DotNetCore.CAP.MongoDB" Version="5.1.1"/>
-    <PackageReference Include="SqlSugar.IOC" Version="1.5.0"/>
-    <PackageReference Include="DotNetCore.CAP.InMemoryStorage" Version="5.1.1"/>
-    
-    
-    
+    <PackageReference Include="DotNetCore.CAP" Version="5.1.1" />
+    <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="5.1.1" />
+    <PackageReference Include="DotNetCore.CAP.MySql" Version="5.1.1" />
+    <PackageReference Include="DotNetCore.CAP.Dashboard" Version="5.1.1" />
+    <PackageReference Include="DotNetCore.CAP.MongoDB" Version="5.1.1" />
+    <PackageReference Include="SqlSugar.IOC" Version="1.5.0" />
+    <PackageReference Include="DotNetCore.CAP.InMemoryStorage" Version="5.1.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OdinPlugs.Utils\OdinPlugs.OdinUtils.csproj"/>
+    <ProjectReference Include="..\OdinPlugs.OdinUtils\OdinPlugs.OdinUtils.csproj" />
   </ItemGroup>
 </Project>

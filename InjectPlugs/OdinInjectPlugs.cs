@@ -2,14 +2,29 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
+using Mapster;
 using Microsoft.Extensions.DependencyInjection;
 using OdinPlugs.OdinInject.Models.EventBusModels;
 using OdinPlugs.OdinInject.Models.HttpClientModels;
+using OdinPlugs.OdinInject.OdinMapster;
+using OdinPlugs.OdinInject.OdinMapster.IOdinMapster;
 
 namespace OdinPlugs.OdinInject.InjectPlugs
 {
     public static class OdinInjectPlugs
     {
+        /// <summary>
+        /// httpClient注入,无证书
+        /// </summary>
+        /// <param name="services">IServiceCollection services</param>
+        /// <param name="ass">需要注册的程序集</param>
+        /// <returns>IServiceCollection</returns>
+        public static IServiceCollection AddOdinTypeAdapter(this IServiceCollection services, Action<TypeAdapterConfig> options)
+        {
+            services.AddSingleton<ITypeAdapterMapster>(provider => new TypeAdapterMapster(options));
+            System.Console.WriteLine($"注入类型【 TypeAdapterMapster 】");
+            return services;
+        }
 
         /// <summary>
         /// httpClient注入,无证书

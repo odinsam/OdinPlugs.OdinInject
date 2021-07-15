@@ -150,6 +150,33 @@
         return Task.CompletedTask;
     }
     ```
+
+    #### 2.5 Mapster 映射注入:
+    项目使用Mapster映射第三方框架，代替了传统的AutoMapper,注入使用单例注入
+    ```csharp
+    services.AddOdinTypeAdapter(
+        opt=>{
+            opt.ForType<Student_DbModel, StudentDto>()
+                    .Map(dest => dest.UserName, src => src.StuName);
+            opt.ForType<Teacher_DbModel, TeacherDto>()
+                    .Map(dest => dest.UserName, src => src.TeacherName);
+        });
+    ```
+    具体使用:
+    ```csharp
+    var errorCodelst = errorCodes
+                        .OdinTypeAdapterBuilder<ErrorCode_DbModel, ErrorCode_Model, List<ErrorCode_Model>>(
+                            opt =>
+                            {
+                                opt.Map(dest => dest.ErrorMessage, src => src.CodeErrorMessage);
+                                opt.Map(dest => dest.ShowMessage, src => src.CodeShowMessage);
+                            }
+                            ,
+                            OdinInjectCore.GetService<ITypeAdapterMapster>().GetConfig()
+                        );
+    ```
+    具体使用请参看 OdinPlugs.OdinUtils 的 [README.md](https://github.com/odinsam/OdinPlugs.Utils/blob/master/README.md) 说明文档
+    
 **获取注入类型:**
 
 |方法|说明|备注|

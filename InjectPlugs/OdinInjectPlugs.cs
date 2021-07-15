@@ -14,7 +14,7 @@ namespace OdinPlugs.OdinInject.InjectPlugs
     public static class OdinInjectPlugs
     {
         /// <summary>
-        /// httpClient注入,无证书
+        /// Mapster注入
         /// </summary>
         /// <param name="services">IServiceCollection services</param>
         /// <param name="ass">需要注册的程序集</param>

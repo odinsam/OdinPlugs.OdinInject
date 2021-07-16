@@ -176,7 +176,32 @@
                         );
     ```
     具体使用请参看 OdinPlugs.OdinUtils 的 [README.md](https://github.com/odinsam/OdinPlugs.Utils/blob/master/README.md) 说明文档
-    
+
+    #### 2.6 其他的一些依赖注入
+    ```csharp
+    services
+            // 雪花ID 依赖注入
+            .AddSingletonSnowFlake(_Options.FrameworkConfig.SnowFlake.DataCenterId, _Options.FrameworkConfig.SnowFlake.WorkerId)
+            // mongo 依赖注入
+            .AddOdinTransientMongoDb(
+                opt => { opt.ConnectionString = _Options.MongoDb.MongoConnection; opt.DbName = _Options.MongoDb.Database; })
+            // redis 依赖注入
+            .AddOdinTransientRedis(
+                opt => { opt.ConnectionString = _Options.Redis.Connection; opt.InstanceName = _Options.Redis.InstanceName; })
+            // CacheManager 依赖注入
+            .AddOdinTransientCacheManager(
+                opt =>
+                {
+                    opt.OptCm = _Options.CacheManager.Adapt<OdinPlugs.OdinInject.Models.CacheManagerModels.CacheManagerModel>();
+                    opt.OptRbmq = _Options.Redis.Adapt<RedisModel>();
+                })
+            // cap 依赖注入
+            .AddOdinCapInject(opt =>
+            {
+                opt.MysqlConnectionString = _Options.DbEntity.ConnectionString;
+                opt.RabbitmqOptions = _Options.RabbitMQ.Adapt<RabbitMQOptions>();
+            });
+    ```
 **获取注入类型:**
 
 |方法|说明|备注|

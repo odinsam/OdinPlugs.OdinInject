@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using OdinPlugs.OdinInject.InjectCore;
 using OdinPlugs.OdinInject.WebApi.HttpClientInterface;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 

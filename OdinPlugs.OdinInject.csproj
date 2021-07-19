@@ -21,6 +21,7 @@
     <ApplicationIcon />
     <StartupObject />
     <PackageIcon>icon.png</PackageIcon>
+    <IsPackable>true</IsPackable>
   </PropertyGroup>
   <ItemGroup>
     <None Include="images\icon.png" Pack="true" PackagePath="" />

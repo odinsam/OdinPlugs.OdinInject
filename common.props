@@ -9,7 +9,7 @@
         <OdinOutputType>Library</OdinOutputType>
 
         
-        <OdinPackageId>$(OdinAssemblyName)</OdinPackageId>
+        <OdinPackageId>OdinPlugs.OdinInject</OdinPackageId>
         <OdinAuthors>odinSam</OdinAuthors>
         <OdinCompany>odinsam</OdinCompany>
         <OdinCopyright>版权所有 (c) odinsam 2021</OdinCopyright>

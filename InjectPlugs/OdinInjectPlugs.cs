@@ -134,7 +134,7 @@ namespace OdinPlugs.OdinInject.InjectPlugs
         }
         #endregion
 
-        #region CacheManager注入
+        #region CacheManager注入 - AddOdinSingletonCacheManager(this IServiceCollection services, Action<OdinCacheManagerModel> action)
         /// <summary>
         /// CacheManager Singleton注入
         /// </summary>
@@ -181,7 +181,7 @@ namespace OdinPlugs.OdinInject.InjectPlugs
         }
         #endregion
 
-        #region canal注入
+        #region canal注入 - AddOdinSingletonCanal(this IServiceCollection services)
         /// <summary>
         /// canal Singleton注入
         /// </summary>
@@ -190,7 +190,7 @@ namespace OdinPlugs.OdinInject.InjectPlugs
         /// <returns>IServiceCollection</returns>
         public static IServiceCollection AddOdinSingletonCanal(this IServiceCollection services)
         {
-            services.AddSingleton<IOdinCanal>();
+            services.AddSingleton<IOdinCanal, OdinCanal>();
             System.Console.WriteLine($"注入类型【 canal 】");
             return services;
         }
@@ -222,7 +222,7 @@ namespace OdinPlugs.OdinInject.InjectPlugs
         }
         #endregion
 
-        #region Consul 注入
+        #region IOdinCapEventBus Singleton注入 - AddOdinSingletonCapEventBus(this IServiceCollection services)
         /// <summary>
         /// IOdinCapEventBus Singleton注入
         /// </summary>
@@ -231,7 +231,7 @@ namespace OdinPlugs.OdinInject.InjectPlugs
         /// <returns>IServiceCollection</returns>
         public static IServiceCollection AddOdinSingletonCapEventBus(this IServiceCollection services)
         {
-            services.AddSingleton<IOdinCapEventBus>();
+            services.AddSingleton<IOdinCapEventBus, OdinCapEventBus>();
             System.Console.WriteLine($"注入类型【 IOdinCapEventBus 】");
             return services;
         }
@@ -263,7 +263,7 @@ namespace OdinPlugs.OdinInject.InjectPlugs
         }
         #endregion
 
-        #region IOdinErrorCode Singleton注入
+        #region IOdinErrorCode Singleton注入 - AddOdinSingletonErrorCode(this IServiceCollection services)
         /// <summary>
         /// IOdinErrorCode Singleton注入
         /// </summary>
@@ -272,7 +272,7 @@ namespace OdinPlugs.OdinInject.InjectPlugs
         /// <returns>IServiceCollection</returns>
         public static IServiceCollection AddOdinSingletonErrorCode(this IServiceCollection services)
         {
-            services.AddSingleton<IOdinErrorCode>();
+            services.AddSingleton<IOdinErrorCode, OdinErrorCode>();
             System.Console.WriteLine($"注入类型【 IOdinErrorCode 】");
             return services;
         }
@@ -304,7 +304,7 @@ namespace OdinPlugs.OdinInject.InjectPlugs
         }
         #endregion
 
-        #region OdinMongoDbInject 注入
+        #region OdinMongoDbInject 注入 - AddOdinSingletonMongoDb(this IServiceCollection services, Action<MongoDbModel> action)
         /// <summary>
         /// IOdinMongo Singleton注入
         /// </summary>
@@ -351,7 +351,7 @@ namespace OdinPlugs.OdinInject.InjectPlugs
         }
         #endregion
 
-        #region IOdinRedis 注入
+        #region IOdinRedis 注入 - AddOdinSingletonRedis(this IServiceCollection services, Action<RedisOption> action)
         /// <summary>
         /// IOdinRedis Singleton注入
         /// </summary>

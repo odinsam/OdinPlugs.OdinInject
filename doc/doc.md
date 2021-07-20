@@ -105,12 +105,12 @@
 
     具体使用:
     ```csharp
-    OdinInjectCore.GetService<IOdinHttpClientFactory>().GetRequestAsync(
+    OdinInjectCore.GetService<IOdinHttpClientFactory>().GetRequestAsync<T>(
         "OdinClient", 
         "url",
         customHeaders,
         "application/json");
-    OdinInjectCore.GetService<IOdinHttpClientFactory>().PostRequestAsync(
+    OdinInjectCore.GetService<IOdinHttpClientFactory>().PostRequestAsync<T>(
         "OdinClient", 
         "url",
         postData,

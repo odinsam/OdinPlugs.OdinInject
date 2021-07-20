@@ -1,25 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="./common.props" />
   <PropertyGroup>
+    <Version>1.0.6</Version>
     <TargetFramework>net5.0</TargetFramework>
-    <GeneratePackageOnBuild>$(OdinGeneratePackageOnBuild)</GeneratePackageOnBuild>
-    <AssemblyName>$(OdinAssemblyName)</AssemblyName>
+    <AssemblyName>OdinPlugs.OdinInject</AssemblyName>
     <RootNamespace>OdinPlugs.OdinInject</RootNamespace>
-    <OutputType>Library</OutputType>
+    
     <PackageId>$(OdinPackageId)</PackageId>
     <Authors>$(OdinAuthors)</Authors>
     <Company>$(OdinCompany)</Company>
     <Copyright>$(OdinCopyright)</Copyright>
     <Product>$(OdinProduct)</Product>
     <Description>$(OdinDescription)</Description>
-    <Version>1.0.5</Version>
-    <PackageTags>$(OdinPackageTags)</PackageTags>
-    <PackageProjectUrl>$(OdinGitUrl)/OdinPlugs.Utils.git</PackageProjectUrl>
-    <RepositoryUrl>$(OdinGitUrl)/$(OdinAssemblyName)</RepositoryUrl>
     <RepositoryType>$(OdinRepositoryType)</RepositoryType>
+    <RepositoryType>$(OdinRepositoryType)</RepositoryType>
+    <PackageTags>$(OdinPackageTags)</PackageTags>
+    <Title>$(OdinAssemblyName)</Title>
+    <PackageProjectUrl>$(OdinGitUrl)/OdinPlugs.OdinInject</PackageProjectUrl>
+    <RepositoryUrl>$(OdinGitUrl)/OdinPlugs.OdinInject</RepositoryUrl>
     <RepositoryBranch>master</RepositoryBranch>
-    <ApplicationIcon />
-    <StartupObject />
     <PackageIcon>icon.png</PackageIcon>
     <IsPackable>true</IsPackable>
   </PropertyGroup>

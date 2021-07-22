@@ -349,7 +349,5 @@ namespace OdinPlugs.OdinInject.InjectCore
             }
             return services;
         }
-
-
     }
 }

@@ -5,6 +5,11 @@ namespace OdinPlugs.OdinInject.InjectPlugs.OdinCanalInject
 {
     public interface IOdinCanal : IAutoInject
     {
+        /// <summary>
+        /// GetCanalInfo
+        /// </summary>
+        /// <param name="jsonData">data</param>
+        /// <returns>return OdinCanal</returns>
         OdinCanalModel GetCanalInfo(string jsonData);
     }
 }

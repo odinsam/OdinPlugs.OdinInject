@@ -6,6 +6,10 @@ namespace OdinPlugs.OdinInject.InjectPlugs.OdinMapsterInject
 {
     public interface ITypeAdapterMapster : IAutoInjectWithParams
     {
+        /// <summary>
+        /// Get mapster global config
+        /// </summary>
+        /// <returns>global of typeAdapterConfig</returns>
         TypeAdapterConfig GetConfig();
     }
 }

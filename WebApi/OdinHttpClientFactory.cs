@@ -6,12 +6,11 @@ using System.Net.Http.Headers;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using IdentityModel.Client;
 using Newtonsoft.Json;
 using OdinPlugs.OdinInject.InjectCore;
 using OdinPlugs.OdinInject.WebApi.HttpClientInterface;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
-
+using IdentityModel.Client;
 namespace OdinPlugs.OdinInject.WebApi
 {
     public class OdinHttpClientFactory : IOdinHttpClientFactory

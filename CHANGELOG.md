@@ -1,7 +1,3 @@
-# Changelog
-
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
-
 ## 1.1.0 (2021-07-09)
 
 * chore(release): 1.1.0 ([3889e74](https://github.com/odinsam/odinplugs.odinInject/commit/3889e74))
@@ -11,3 +7,6 @@ All notable changes to this project will be documented in this file. See [standa
 * feat(OdinInject): ✨ OdinInjectCore 核心注入类 ([542ac6b](https://github.com/odinsam/odinplugs.odinInject/commit/542ac6b))
 * docs(*): 📃 init commit ([7c51097](https://github.com/odinsam/odinplugs.odinInject/commit/7c51097))
 * Initial commit ([ef47c79](https://github.com/odinsam/odinplugs.odinInject/commit/ef47c79))
+
+
+

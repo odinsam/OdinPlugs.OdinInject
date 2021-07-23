@@ -88,12 +88,14 @@
         OdinInjectCore.GetService<IOdinHttpClientFactory>().GetRequestAsync<T>(
             "OdinClient",
             "url",
+            accessToken:"",
             customHeaders,
             "application/json");
         OdinInjectCore.GetService<IOdinHttpClientFactory>().PostRequestAsync<T>(
             "OdinClient",
             "url",
             postData,
+            accessToken:"",
             customHeaders,
             "application/json",
             Encoding.UTF8);

@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using IdentityModel.Client;
 using Newtonsoft.Json;
 using OdinPlugs.OdinInject.InjectCore;
 using OdinPlugs.OdinInject.WebApi.HttpClientInterface;
@@ -15,7 +16,7 @@ namespace OdinPlugs.OdinInject.WebApi
 {
     public class OdinHttpClientFactory : IOdinHttpClientFactory
     {
-        public async Task<T> GetRequestAsync<T>(string clientName, string uri, Dictionary<string, string> customHeaders = null, string mediaType = "application/json")
+        public async Task<T> GetRequestAsync<T>(string clientName, string uri, string accessToken = null, Dictionary<string, string> customHeaders = null, string mediaType = "application/json")
         {
             var clientFactory = OdinInjectCore.GetService<IHttpClientFactory>();
             var client = clientFactory.CreateClient(clientName);
@@ -26,10 +27,12 @@ namespace OdinPlugs.OdinInject.WebApi
             };
             RequestHeaderAdd(request, customHeaders);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(mediaType));
+            if (!string.IsNullOrEmpty(accessToken))
+                client.SetBearerToken(accessToken);
             return await GetResponseResult<T>(client, request);
         }
 
-        public async Task<T> PostRequestAsync<T>(string clientName, string uri, Object obj, Dictionary<string, string> customHeaders = null,
+        public async Task<T> PostRequestAsync<T>(string clientName, string uri, Object obj, string accessToken = null, Dictionary<string, string> customHeaders = null,
                                                     string mediaType = "application/json", Encoding encoder = null)
         {
             var clientFactory = OdinInjectCore.GetService<IHttpClientFactory>();
@@ -40,6 +43,8 @@ namespace OdinPlugs.OdinInject.WebApi
                 Method = HttpMethod.Post,
             };
             RequestHeaderAdd(request, customHeaders);
+            if (!string.IsNullOrEmpty(accessToken))
+                client.SetBearerToken(accessToken);
             request.Content = GenerateContent(obj, mediaType, encoder);
             return await GetResponseResult<T>(client, request);
         }

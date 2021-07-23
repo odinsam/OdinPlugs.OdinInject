@@ -17,7 +17,7 @@ namespace OdinPlugs.OdinInject.WebApi.HttpClientInterface
         /// <param name="mediaType">request mediaType</param>
         /// <typeparam name="T">result Type</typeparam>
         /// <returns>type of Result</returns>
-        Task<T> GetRequestAsync<T>(string clientName, string uri, Dictionary<string, string> customHeaders = null, string mediaType = "application/json");
+        Task<T> GetRequestAsync<T>(string clientName, string uri, string accessToken = null, Dictionary<string, string> customHeaders = null, string mediaType = "application/json");
 
         /// <summary>
         /// PostRequestAsync
@@ -30,6 +30,6 @@ namespace OdinPlugs.OdinInject.WebApi.HttpClientInterface
         /// <param name="encoder">request encoder</param>
         /// <typeparam name="T">result Type</typeparam>
         /// <returns>type of Result</returns>
-        Task<T> PostRequestAsync<T>(string clientName, string uri, Object obj, Dictionary<string, string> customHeaders = null, string mediaType = "application/json", Encoding encoder = null);
+        Task<T> PostRequestAsync<T>(string clientName, string uri, Object obj, string accessToken = null, Dictionary<string, string> customHeaders = null, string mediaType = "application/json", Encoding encoder = null);
     }
 }

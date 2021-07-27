@@ -11,10 +11,29 @@ using OdinPlugs.OdinInject.InjectCore;
 using OdinPlugs.OdinInject.WebApi.HttpClientInterface;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 using IdentityModel.Client;
+using OdinPlugs.OdinInject.WebApi.Models;
+
 namespace OdinPlugs.OdinInject.WebApi
 {
     public class OdinHttpClientFactory : IOdinHttpClientFactory
     {
+        public async Task<ResponseModel<T>> GetHttpRequestAsync<T>(string clientName, string uri, string accessToken = null, Dictionary<string, string> customHeaders = null, string mediaType = "application/json")
+        {
+            var clientFactory = OdinInjectCore.GetService<IHttpClientFactory>();
+            var client = clientFactory.CreateClient(clientName);
+            var request = new HttpRequestMessage()
+            {
+                RequestUri = new Uri(uri),
+                Method = HttpMethod.Get,
+            };
+            RequestHeaderAdd(request, customHeaders);
+            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(mediaType));
+            if (!string.IsNullOrEmpty(accessToken))
+                client.SetBearerToken(accessToken);
+            return await GetHttpResponseResult<T>(client, request);
+        }
+
+        [Obsolete("this method is Obsolete.please use GetHttpRequestAsync<T>")]
         public async Task<T> GetRequestAsync<T>(string clientName, string uri, string accessToken = null, Dictionary<string, string> customHeaders = null, string mediaType = "application/json")
         {
             var clientFactory = OdinInjectCore.GetService<IHttpClientFactory>();
@@ -31,8 +50,24 @@ namespace OdinPlugs.OdinInject.WebApi
             return await GetResponseResult<T>(client, request);
         }
 
-        public async Task<T> PostRequestAsync<T>(string clientName, string uri, Object obj, string accessToken = null, Dictionary<string, string> customHeaders = null,
-                                                    string mediaType = "application/json", Encoding encoder = null)
+        public async Task<ResponseModel<T>> PostHttpRequestAsync<T>(string clientName, string uri, Object obj, string accessToken = null, Dictionary<string, string> customHeaders = null, string mediaType = "application/json", Encoding encoder = null)
+        {
+            var clientFactory = OdinInjectCore.GetService<IHttpClientFactory>();
+            var client = clientFactory.CreateClient(clientName);
+            var request = new HttpRequestMessage()
+            {
+                RequestUri = new Uri(uri),
+                Method = HttpMethod.Post,
+            };
+            RequestHeaderAdd(request, customHeaders);
+            if (!string.IsNullOrEmpty(accessToken))
+                client.SetBearerToken(accessToken);
+            request.Content = GenerateContent(obj, mediaType, encoder);
+            return await GetHttpResponseResult<T>(client, request);
+        }
+
+        [Obsolete("this method is Obsolete.please use PostHttpRequestAsync<T>")]
+        public async Task<T> PostRequestAsync<T>(string clientName, string uri, Object obj, string accessToken = null, Dictionary<string, string> customHeaders = null, string mediaType = "application/json", Encoding encoder = null)
         {
             var clientFactory = OdinInjectCore.GetService<IHttpClientFactory>();
             var client = clientFactory.CreateClient(clientName);
@@ -80,16 +115,17 @@ namespace OdinPlugs.OdinInject.WebApi
                             encoder == null ? Encoding.UTF8 : encoder,
                             mediaType);
         }
-        private async Task<T> PostResponseResult<T>(HttpClient client, HttpRequestMessage request)
+        private async Task<ResponseModel<T>> GetHttpResponseResult<T>(HttpClient client, HttpRequestMessage request)
         {
             var response = await client.SendAsync(request);
             if (response.IsSuccessStatusCode)
             {
-                return GetResult<T>(response);
+                return GetHttpResult<T>(response);
             }
             else
                 throw new Exception("请求出错");
         }
+
         private async Task<T> GetResponseResult<T>(HttpClient client, HttpRequestMessage request)
         {
             var response = await client.SendAsync(request);
@@ -100,6 +136,9 @@ namespace OdinPlugs.OdinInject.WebApi
             else
                 throw new Exception("请求出错");
         }
+
+
+
         private void RequestHeaderAdd(HttpRequestMessage request, Dictionary<string, string> customHeaders)
         {
             if (customHeaders != null)
@@ -108,6 +147,30 @@ namespace OdinPlugs.OdinInject.WebApi
                 {
                     request.Headers.Add(customHeader.Key, customHeader.Value);
                 }
+            }
+        }
+        private ResponseModel<T> GetHttpResult<T>(HttpResponseMessage httpResponseMessage)
+        {
+            // 确认响应成功，否则抛出异常
+            // result.EnsureSuccessStatusCode();
+            var model = new ResponseModel<T>();
+            model.StatusCode = httpResponseMessage.StatusCode;
+            if (typeof(T) == typeof(byte[]))
+            {
+                model.obj = (T)Convert.ChangeType(httpResponseMessage.Content.ReadAsByteArrayAsync(), typeof(T));
+                return model;
+            }
+            else if (typeof(T) == typeof(Stream))
+            {
+                model.obj = (T)Convert.ChangeType(httpResponseMessage.Content.ReadAsStreamAsync().Result, typeof(T));
+                return model;
+            }
+            else
+            {
+                if (typeof(T) == typeof(string))
+                    model.obj = (T)Convert.ChangeType(httpResponseMessage.Content.ReadAsStringAsync().Result, typeof(T));
+                model.obj = JsonConvert.DeserializeObject<T>(httpResponseMessage.Content.ReadAsStringAsync().Result);
+                return model;
             }
         }
         private T GetResult<T>(HttpResponseMessage httpResponseMessage)

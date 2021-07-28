@@ -4,10 +4,10 @@ using Mapster;
 
 namespace OdinPlugs.OdinInject.InjectPlugs.OdinMapsterInject
 {
-    public class TypeAdapterMapster : ITypeAdapterMapster
+    public class OdinMapster : IOdinMapster
     {
         public static TypeAdapterConfig Config { get; set; }
-        public TypeAdapterMapster(TypeAdapterConfig options)
+        public OdinMapster(TypeAdapterConfig options)
         {
             if (options == null)
                 options = new TypeAdapterConfig();

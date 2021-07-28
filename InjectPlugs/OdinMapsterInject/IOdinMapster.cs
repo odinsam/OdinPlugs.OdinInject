@@ -4,7 +4,7 @@ using OdinPlugs.OdinInject.InjectInterface;
 
 namespace OdinPlugs.OdinInject.InjectPlugs.OdinMapsterInject
 {
-    public interface ITypeAdapterMapster : IAutoInjectWithParams
+    public interface IOdinMapster : IAutoInjectWithParams
     {
         /// <summary>
         /// Get mapster global config

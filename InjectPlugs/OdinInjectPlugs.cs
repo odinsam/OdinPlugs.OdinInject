@@ -33,7 +33,7 @@ namespace OdinPlugs.OdinInject.InjectPlugs
             var config = new TypeAdapterConfig();
             if (action != null)
                 action(config);
-            services.AddSingleton<ITypeAdapterMapster>(provider => new TypeAdapterMapster(config));
+            services.AddSingleton<IOdinMapster>(provider => new OdinMapster(config));
             System.Console.WriteLine($"注入类型【 TypeAdapterMapster 】");
             return services;
         }

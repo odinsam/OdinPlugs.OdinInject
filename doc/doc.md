@@ -218,6 +218,10 @@ services.AddOdinIds(opts =>
         opts.MySqlConnectionString = _Options.DbEntity.ConnectionString;
         opts.MigrationsAssemblyName = migrationsAssembly;
     });
+
+// console 控制台获取configRoot
+var cnf = OdinConsoleInjectCore.GetConfiguration(new string[]{ "configPath" });
+string value = cnf.GetSection("xxxRoot:xxx").Value;
 ```
 
 **获取注入类型:**

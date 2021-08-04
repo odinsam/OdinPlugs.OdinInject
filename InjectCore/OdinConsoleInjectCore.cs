@@ -9,11 +9,13 @@ namespace OdinPlugs.OdinInject.InjectCore
         /// <summary>
         /// console Get ConfigRoot
         /// </summary>
+        /// <param name="rootPath">项目根路径</param>
         /// <param name="configName">config file path array</param>
         /// <returns>configRoot</returns>
-        public static IConfigurationRoot GetConfiguration(string[] configName)
+        public static IConfigurationRoot GetConfiguration(string rootPath, string[] configName)
         {
             var build = new ConfigurationBuilder();
+            build.SetBasePath(rootPath);
             if (configName.Length == 0)
             {
                 throw new Exception("need config file");

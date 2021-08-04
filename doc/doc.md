@@ -220,7 +220,7 @@ services.AddOdinIds(opts =>
     });
 
 // console 控制台获取configRoot
-var cnf = OdinConsoleInjectCore.GetConfiguration(new string[]{ "configPath" });
+var cnf = OdinConsoleInjectCore.GetConfiguration(Directory.GetCurrentDirectory() ,new string[]{ "configPath" });
 string value = cnf.GetSection("xxxRoot:xxx").Value;
 ```
 

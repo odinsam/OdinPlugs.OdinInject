@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="./common.props"/>
   <PropertyGroup>
-    <Version>1.0.6</Version>
+    <Version>$(OdinVersion)</Version>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>OdinPlugs.OdinInject</AssemblyName>
     <RootNamespace>OdinPlugs.OdinInject</RootNamespace>

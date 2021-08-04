@@ -13,7 +13,7 @@
         "url": "https://github.com/odinsam/odinplugs.odinInject/issues"
     },
     "homepage": "https://github.com/odinsam/odinplugs.odinInject#readme",
-    "version": "1.1.0",
+    "version": "1.0.6",
     "scripts": {
         "release": "standard-version",
         "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0"

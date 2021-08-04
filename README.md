@@ -8,8 +8,10 @@
 
 具体使用，请看[使用手册](https://github.com/odinsam/OdinPlugs.OdinInject/blob/master/doc/doc.md)
 
-changelog
+### changelog
 
 v1.0.6
 
-HttpClient 添加 accesstoken 参数
+-   HttpClient 添加 accesstoken 参数
+-   增加 Identity Server 注入
+-   console 控制台基础注入

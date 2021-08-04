@@ -209,6 +209,15 @@ services
             opt.MysqlConnectionString = _Options.DbEntity.ConnectionString;
             opt.RabbitmqOptions = _Options.RabbitMQ.Adapt<RabbitMQOptions>();
         });
+
+// identity server4依赖注入
+var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+services.AddOdinIds(opts =>
+    {
+        opts.RsaFilePath = "rsaCers/odin_ids.rsa";  //可选参数
+        opts.MySqlConnectionString = _Options.DbEntity.ConnectionString;
+        opts.MigrationsAssemblyName = migrationsAssembly;
+    });
 ```
 
 **获取注入类型:**

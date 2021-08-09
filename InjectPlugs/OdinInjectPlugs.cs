@@ -10,7 +10,6 @@ using Microsoft.Extensions.DependencyInjection;
 using OdinPlugs.OdinInject.InjectPlugs.OdinCacheManagerInject;
 using OdinPlugs.OdinInject.InjectPlugs.OdinCanalInject;
 using OdinPlugs.OdinInject.InjectPlugs.OdinCapService;
-using OdinPlugs.OdinInject.InjectPlugs.OdinErrorCodeInject;
 using OdinPlugs.OdinInject.InjectPlugs.OdinIdsInject;
 using OdinPlugs.OdinInject.InjectPlugs.OdinMapsterInject;
 using OdinPlugs.OdinInject.InjectPlugs.OdinMongoDbInject;
@@ -262,47 +261,6 @@ namespace OdinPlugs.OdinInject.InjectPlugs
         {
             services.AddScoped<IOdinCapEventBus>();
             System.Console.WriteLine($"注入类型【 IOdinCapEventBus 】");
-            return services;
-        }
-        #endregion
-
-        #region IOdinErrorCode Singleton注入 - AddOdinSingletonErrorCode (this IServiceCollection services)
-        /// <summary>
-        /// IOdinErrorCode Singleton注入
-        /// </summary>
-        /// <param name="services">IServiceCollection services</param>
-        /// <param name="ass">需要注册的程序集</param>
-        /// <returns>IServiceCollection</returns>
-        public static IServiceCollection AddOdinSingletonErrorCode(this IServiceCollection services)
-        {
-            services.AddSingleton<IOdinErrorCode, OdinErrorCode>();
-            System.Console.WriteLine($"注入类型【 IOdinErrorCode 】");
-            return services;
-        }
-
-        /// <summary>
-        /// IOdinErrorCode Transient 注入
-        /// </summary>
-        /// <param name="services">IServiceCollection services</param>
-        /// <param name="ass">需要注册的程序集</param>
-        /// <returns>IServiceCollection</returns>
-        public static IServiceCollection AddOdinTransientErrorCode(this IServiceCollection services)
-        {
-            services.AddTransient<IOdinErrorCode>();
-            System.Console.WriteLine($"注入类型【 IOdinErrorCode 】");
-            return services;
-        }
-
-        /// <summary>
-        /// IOdinErrorCode Scoped注入
-        /// </summary>
-        /// <param name="services">IServiceCollection services</param>
-        /// <param name="ass">需要注册的程序集</param>
-        /// <returns>IServiceCollection</returns>
-        public static IServiceCollection AddOdinScopedErrorCode(this IServiceCollection services)
-        {
-            services.AddScoped<IOdinErrorCode>();
-            System.Console.WriteLine($"注入类型【 IOdinErrorCode 】");
             return services;
         }
         #endregion

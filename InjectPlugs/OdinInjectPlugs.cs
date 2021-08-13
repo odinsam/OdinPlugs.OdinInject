@@ -4,6 +4,7 @@ using System.IO;
 using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
 using IdentityServer4.EntityFramework.DbContexts;
+using IdentityServer4.Validation;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -349,7 +350,10 @@ namespace OdinPlugs.OdinInject.InjectPlugs
         /// <param name="services">IServiceCollection services</param>
         /// <param name="ass">需要注册的程序集</param>
         /// <returns>IServiceCollection</returns>
-        public static IServiceCollection AddOdinScopedRedis(this IServiceCollection services, Action<RedisOption> action)
+        public static IServiceCollection AddOdinScopedRedis(
+            this IServiceCollection services,
+            Action<RedisOption> action
+            )
         {
             var option = new RedisOption();
             action(option);
@@ -360,7 +364,9 @@ namespace OdinPlugs.OdinInject.InjectPlugs
         #endregion
 
         #region IOdinIds 注入 - AddOdinIds (this IServiceCollection services, Action<IdsOption> action)
-        public static IServiceCollection AddOdinIds(this IServiceCollection services, Action<IdsOption> idsAction)
+        public static IIdentityServerBuilder AddOdinIds(
+            this IServiceCollection services,
+            Action<IdsOption> idsAction)
         {
             var options = new IdsOption();
             idsAction(options);
@@ -388,12 +394,12 @@ namespace OdinPlugs.OdinInject.InjectPlugs
             // dotnet ef migrations add ConfigDbContext -c ConfigurationDbContext -o Data/Migrations/IdentityServer/ConfiguragtionDb
             // dotnet ef database update -c ConfigurationDbContext
             ids.AddConfigurationStore(opt =>
-            {
-                opt.ConfigureDbContext = context =>
                 {
-                    context.UseMySQL(options.MySqlConnectionString, sql => sql.MigrationsAssembly(options.MigrationsAssemblyName));
-                };
-            })
+                    opt.ConfigureDbContext = context =>
+                    {
+                        context.UseMySQL(options.MySqlConnectionString, sql => sql.MigrationsAssembly(options.MigrationsAssemblyName));
+                    };
+                })
                 // 令牌和授权码的数据库存储
                 // PersistedGrantDbContext
                 // dotnet ef migrations add OperationContext -c PersistedGrantDbContext  -o Data/Migrations/IdentityServer/OperationDb
@@ -405,6 +411,12 @@ namespace OdinPlugs.OdinInject.InjectPlugs
                     opt.EnableTokenCleanup = true;
                     opt.TokenCleanupInterval = 30;
                 });
+            return ids;
+        }
+        public static IServiceCollection AddIdsContext(this IServiceCollection services, Action<IdsOption> idsAction)
+        {
+            var options = new IdsOption();
+            idsAction(options);
             services
                 .AddIdentityServerDbContext<ConfigurationDbContext>(opts =>
                 {
@@ -424,6 +436,7 @@ namespace OdinPlugs.OdinInject.InjectPlugs
                 });
             return services;
         }
+
         #endregion
     }
 }

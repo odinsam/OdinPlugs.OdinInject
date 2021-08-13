@@ -17,7 +17,7 @@ namespace OdinPlugs.OdinInject.InjectPlugs.OdinCacheManagerInject
         public OdinCacheManager(OdinCacheManagerModel option)
         {
             var cmOptions = option.OptCm;
-            var rbmqOptions = option.OptRbmq;
+            var redisOptions = option.OptRedis;
             if (cacheManager == null)
             {
                 var sysRuntimeCacheOpt = cmOptions.Handles.Where(s => s.KnownType == "SystemRuntime").Single();
@@ -31,9 +31,9 @@ namespace OdinPlugs.OdinInject.InjectPlugs.OdinCacheManagerInject
                         .WithRedisConfiguration(redisCacheOpt.HandleName, config => //Redis缓存配置
                         {
                             config.WithAllowAdmin()
-                                .WithPassword(rbmqOptions.RedisPassword)
-                                .WithDatabase(rbmqOptions.DefaultDatabase)
-                                .WithEndpoint(rbmqOptions.RedisIp, rbmqOptions.RedisPort);
+                                .WithPassword(redisOptions.RedisPassword)
+                                .WithDatabase(redisOptions.DefaultDatabase)
+                                .WithEndpoint(redisOptions.RedisIp, redisOptions.RedisPort);
                         })
                         .WithJsonSerializer()
                         .WithMaxRetries(cmOptions.MaxRetries) //尝试次数

@@ -4,7 +4,6 @@ using System.IO;
 using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
 using IdentityServer4.EntityFramework.DbContexts;
-using IdentityServer4.Validation;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

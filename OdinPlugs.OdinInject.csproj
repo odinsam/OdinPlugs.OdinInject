@@ -77,5 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OdinPlugs.OdinUtils\OdinPlugs.OdinUtils.csproj" />
+    <ProjectReference Include="..\OdinPlugs.OdinModels\OdinPlugs.OdinModels.csproj" />
   </ItemGroup>
 </Project>

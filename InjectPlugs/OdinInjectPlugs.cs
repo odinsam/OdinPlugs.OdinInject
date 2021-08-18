@@ -19,7 +19,7 @@ using OdinPlugs.OdinInject.Models.EventBusModels;
 using OdinPlugs.OdinInject.Models.HttpClientModels;
 using OdinPlugs.OdinInject.Models.MongoModels;
 using OdinPlugs.OdinInject.Models.OdinIdsModels;
-using OdinPlugs.OdinInject.Models.RedisModels;
+using OdinPlugs.OdinModels.ConfigModel.RedisModels;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 using Serilog;
 

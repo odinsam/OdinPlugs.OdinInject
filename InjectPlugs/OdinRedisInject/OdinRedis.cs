@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using CSRedis;
 using Newtonsoft.Json;
-using OdinPlugs.OdinInject.Models.RedisModels;
+using OdinPlugs.OdinModels.ConfigModel.RedisModels;
 using OdinPlugs.OdinUtils.OdinExtensions.BasicExtensions.OdinString;
 
 namespace OdinPlugs.OdinInject.InjectPlugs.OdinRedisInject

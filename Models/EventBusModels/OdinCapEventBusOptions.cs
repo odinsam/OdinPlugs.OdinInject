@@ -1,4 +1,5 @@
-using OdinPlugs.OdinInject.Models.RabbitmqModels;
+
+using OdinPlugs.OdinModels.ConfigModel.RabbitMQ;
 
 namespace OdinPlugs.OdinInject.Models.EventBusModels
 {

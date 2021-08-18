@@ -1,4 +1,5 @@
-using OdinPlugs.OdinInject.Models.RedisModels;
+
+using OdinPlugs.OdinModels.ConfigModel.RedisModels;
 
 namespace OdinPlugs.OdinInject.Models.CacheManagerModels
 {
